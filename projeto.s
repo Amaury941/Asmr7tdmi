@@ -1,16 +1,23 @@
-@@@ projeto de OAC v7.6 @@@
-@@@ Demonstração: elementos do array armazenados nos registradores R2 até R9 @
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@ projeto de OAC v7.6 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@@ Demonstração: elementos do array armazenados nos registradores R2 até R9 @@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@     
 
-.global  _start     @a label _start é global, isto é, pode ser acessada por todas as outras
+.global  _start @A label _start é global, pode ser acessada por todas as outras
 
-@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-.data                         @aqui é onde ficam os dados do programa
-lenght:       .word 8                           @tamanho dos arrays
-factor:   .word 3                         @constante a ser multiplicada (no nosso caso 3)
-INarray:  .word 1,2,3,4,5,6,7,8     @array de entrada
-OUTarray: .word 0,0,0,0,0,0,0,0     @array de saída
+.data @aqui é onde ficam os dados do programa
 
-@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@Tamanho dos arrays
+lenght: .word 8                           
+
+@Constante a ser multiplicada (no nosso caso 3)
+factor: .word 3
+
+@Array de entrada                   
+INarray: .word 1,2,3,4,5,6,7,8     
+
+@Array de saída
+OUTarray: .word 0,0,0,0,0,0,0,0     
+
 .text               @aqui é onde ficam os códigos em si
 
 _start:                 @label global _start
@@ -30,12 +37,14 @@ check:                        @label check
 loop:                   @label loop
       LDR R5,[R0],#4          @ carregue o valor de R0, guarde em R5 depois some R0 com 4             
       MUL R4, R5, R1          @ multiplique o valor de R5 pelo valor de R1 e guarde em R4
-      STR R4,[R2],#4        @ guarde o valor de R4 no endereço de R2, depois some R2 com 4    
-      SUB R3, R3, #1        @ diminua 1 de R3 e guarde o resultado em R3    
-      B check                       @ pule para a checkagem
+      STR R4,[R2],#4          @ guarde o valor de R4 no endereço de R2, depois some R2 com 4    
+      SUB R3, R3, #1          @ diminua 1 de R3 e guarde o resultado em R3    
+      B check                 @ pule para a checkagem
 
 _exit:                        @label _exit
       LDR R1,=OUTarray
+
+      @ essa parte é de fim demonstrativos
       LDR R2, [R1,#0]      @array[0]
       LDR R3, [R1,#4]      @array[1]
       LDR R4, [R1,#8]      @array[2]
@@ -44,4 +53,6 @@ _exit:                        @label _exit
       LDR R7, [R1,#20]     @array[5]
       LDR R8, [R1,#24]     @array[6]
       LDR R9, [R1,#28]     @array[7]
+      @
+
       SWI 0                @termine o programa
