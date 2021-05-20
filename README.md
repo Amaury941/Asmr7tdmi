@@ -1,5 +1,5 @@
 # Código da Atividade Prática de Arquitetura e Organização de Computadores
-Código do trabalho de OAC
+Código do trabalho de AOC
 
 
 Proposta: O programa recebe como entrada um vetor de números inteiros quaisquer e produz outro vetor de inteiros de igual tamanho, contendo nas posições respectivas do novo vetor um inteiro cujo valor é igual ao triplo do elemento do vetor original. O vetor original não deve ser alterado pela execução do programa, e o programa deve funcionar com vetores de qualquer tamanho (dentro dos limites de representações típicas do processador empregado).
