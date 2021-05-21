@@ -56,6 +56,6 @@ lenght: .word 8               @Tamanho dos arrays
 Iarray: .word 1,2,3,4,5,6,7,8 @Array de entrada     
 
 
-Oarray: .word 0,0,0,0,0,0,0,0 @Array de saída
+Oarray: .word 0 @Array de saída
 
 .end
